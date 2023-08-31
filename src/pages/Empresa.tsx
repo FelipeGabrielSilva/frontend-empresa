@@ -1,13 +1,10 @@
 import {
-     FormControl,
-     FormLabel,
-     Input,
      Button,
-     RadioGroup,
-     Radio,
    } from '@chakra-ui/react';
    // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { SubmitHandler, useForm, useFormState, Controller } from 'react-hook-form';
+import Formulario from '../components/formulario.tsx/formulario';
+import Parceiro from '../components/parceiro/parceiro';
     
    function Empresa() {
    
@@ -20,40 +17,27 @@ import { SubmitHandler, useForm, useFormState, Controller } from 'react-hook-for
      return (   
        <>
        <form onSubmit={onSubmit(handleSubmit)}>
-         <FormControl id='nomeEmpresa'>
-           <FormLabel>Nome da empresa:</FormLabel>
-           <Input type='text' {...register("nomeEmpresa", {required: true})}/>
-         </FormControl>
+         <Formulario id="nomeEmpresa" titulo='Nome da empresa' tipo="text"
+         {...register("nomeEmpresa", {required: true})}/>
+
+         <Formulario id="cnpj" titulo='CNPJ da Empresa' tipo="text"
+         {...register("cnpj", {required: true})}/>
    
-         <FormControl id='cnpj'>
-           <FormLabel>CNPJ da empresa:</FormLabel>
-           <Input type='text' {...register("cnpj", {required: true})}/>
-         </FormControl>
+        <Formulario id="descricao" titulo='Descrição da empresa' tipo="text"
+         {...register("descricao", {required: true})}/>
    
-         <FormControl id='descricao'>
-           <FormLabel>Descrição:</FormLabel>
-           <Input type='text' {...register("descricao", {required: true})}/>
-         </FormControl>
+        <Formulario id="endereco" titulo='Endereço da empresa' tipo="text"
+         {...register("endereco", {required: true})}/>
    
-         <FormControl id='endereco'>
-           <FormLabel>Endereço:</FormLabel>
-           <Input type='text' {...register("endereco", {required: true})}/>
-         </FormControl>
+        <Formulario id="email" titulo='Email da empresa' tipo="email"
+         {...register("email", {required: true})}/>
    
-         <FormControl id='email'>
-           <FormLabel>E-mail:</FormLabel>
-           <Input type='email' {...register("email", {required: true})}/>
-         </FormControl>
+        <Parceiro id="parceiro" titulo="Parceira" {...register("parceiro", {required: true})} />
    
-         <FormControl id='parceiro'>
-           <FormLabel>Parceiro:</FormLabel>
-           <RadioGroup defaultValue='' >
-             <Radio value="true" {...register("parceiro", {required: true})}>Sim</Radio>
-             <Radio value="false" {...register("parceiro", {required: true})}>Não</Radio>
-           </RadioGroup>
-         </FormControl>
-   
-         <Button type='submit'>Cadastrar</Button>
+        <Button type='submit'
+         m="auto"
+         display="flex"
+         mt="20px">Cadastrar empresa</Button>
        </form>
        </>
      )

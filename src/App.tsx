@@ -1,7 +1,7 @@
 import './App.css';
-import Empresa from './pages/empresa';
-import Navbar from './components/cabecalho';
-import Footer from './components/rodape';
+import Empresa from './pages/Empresa';
+import Navbar from './components/cabecalho/cabecalho';
+import Footer from './components/rodape/rodape';
 
 function App() {
 
